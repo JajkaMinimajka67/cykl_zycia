@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -32,10 +33,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        if (savedInstanceState != null) {
+            punkty = savedInstanceState.getInt("PUNKTY",0);
+        }
 
         buttonPlus = findViewById(R.id.button);
         buttonMinus = findViewById(R.id.button2);
         textViev = findViewById(R.id.textvievpunkty);
+        textViev.setText(punkty+"");
 
         buttonPlus.setOnClickListener(
                 new View.OnClickListener() {
@@ -99,4 +104,11 @@ public class MainActivity extends AppCompatActivity {
     }
     // NIE WOLNO WYWOLYWAC METOD CYKLU ZYCIA AKTYWNOSCI !!!
     // https://developer.android.com/guide/components/activities/activity-lifecycle?hl=pl
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i("Czas", "wywolana metoda onSave");
+        outState.putInt("PUNKTY", punkty);
+    }
 }
