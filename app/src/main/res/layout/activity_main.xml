@@ -24,7 +24,7 @@
         android:id="@+id/textvievpunkty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="0"
         android:textSize="80sp"
         android:layout_margin="20dp"
         android:padding="16dp"
