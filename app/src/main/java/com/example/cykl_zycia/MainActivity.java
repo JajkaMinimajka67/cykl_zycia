@@ -16,7 +16,7 @@ import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonPlus, buttonMinus;
-    View textViev;
+    TextView textViev;
 
     int punkty = 0;
 
@@ -43,7 +43,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         punkty++;
-                        TextView.setText(String.valueOf(punkty));
+                        textViev.setText(String.valueOf(punkty));
+                    }
+                }
+        );
+        buttonMinus.setOnClickListener(
+                new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        punkty--;
+                        textViev.setText(String.valueOf(punkty));
                     }
                 }
         );
